@@ -1,13 +1,14 @@
+import Searching from "./search.page";
 const {Given, When, Then} = require('@badeball/cypress-cucumber-preprocessor');
 
 Given('I open web Application', ()=> {
-    cy.visit('http://zero.webappsecurity.com/index.html')
+    Searching.visit();
 })
 
 When('I search online', () => {
-    cy.get('#searchTerm').type('online {enter}')
+    Searching.search();
 })
 
 Then('I should see the result', () => {
-    cy.get('h2').should('contain.text', 'Search Results:')
+    Searching.validation();
 })
